@@ -1,37 +1,246 @@
-Notepad++ v8.7.7 regression-fix from v8.7.6:
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tartelier Bakery & Patisserie - Toko Roti & Tart</title>
+  <meta name="description" content="Toko roti dan tart premium di Jakarta Selatan. Fresh, handmade, dan siap pesan via WhatsApp.">
+  <meta property="og:title" content="Tartelier Bakery & Patisserie - Toko Roti & Tart Premium">
+  <meta property="og:image" content="https://i.postimg.cc/3wLJXBR9/8034acae354db24d12b71a9ea8263026.jpg">
+  <link rel="icon" href="https://i.postimg.cc/Y9TLqtYz/favicon.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #FFF8F0;
+      color: #4B3A2F;
+    }
+    .topbar { display: flex; justify-content: flex-end; flex-wrap: wrap; background: linear-gradient(90deg, #92a48c, #c0d3b4); background-size: 400% 400%; animation: gradientAnimation 10s ease infinite; padding: 0.5rem 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+    @keyframes gradientAnimation { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+    .social-icons { display: flex; gap: 0.5rem; }
+    .icon { text-decoration: none; font-size: 1.2rem; padding: 0.5rem; border-radius: 50%; color: white; display: inline-flex; align-items: center; justify-content: center; transition: transform 0.2s, box-shadow 0.2s; }
+    .icon:hover, .icon:focus { transform: scale(1.1); box-shadow: 0 4px 10px rgba(0,0,0,0.1); outline: none; }
+    .instagram { background-color: #E1306C; } .whatsapp { background-color: #25D366; } .facebook { background-color: #1877F2; } .tiktok { background-color: #000; }
+    header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: transparent; /* ← Ini bikin latar header-nya transparan */
+  box-shadow: none; /* ← Optional: hapus bayangan jika mau bersih total */
+  position: sticky;
+  top: 0;
+  z-index: 9;
+}
+  .logo-img {
+  height: 100px; /* atau 120px sesuai selera */
+  object-fit: contain;
+}
 
- 1. Add new API NPPM_ADDSCNMODIFIEDFLAGS to fix eventual regression regarding SCN_MODIFIED for some plugins.
-
-
-Notepad++ v8.7.6 regression-fixes, bug-fixes & enhancements:
-
- 1. Update to scintilla 5.5.3 & Lexilla 5.4.1.
- 2. Enhance performance of syntax highlighting for large files.
- 3. Make "Show close/pin button on each inactive tab" optional.
- 4. Add ShortcutMapper Multilingual ability, allowing the use of specific keys for non-en-US keyboards.
- 5. Fix vertical tab crashes when enabling/disabling the pin tab feature.
- 6. Fix crash when passing an invalid buffer with NPPM_SETUNTITLEDNAME.
- 7. Fix floating panels position resetting regression in multi-monitor configurations.
- 8. Fix incorrect "Replace all" behavior during the second replace in selection.
- 9. Fix backup file renaming bug for untitled tabs.
-10. Enhance UX in "Find in file" action when the Directory field is empty.
-11. Make the current line/position copyable in the Go to Line dialog.
-12. GUI enhancement: hide right menu shortcuts on the fly.
-13. Minor enhancements for JavaScript, CSS & HTML.
-
-
-
-Get more info on
-https://notepad-plus-plus.org/downloads/v8.7.7/
-
-
-Included plugins:
-
-1.  NppExport v0.4
-2.  Converter v4.6
-3.  Mime Tool v3.1
-
-
-Updater (Installer only):
-
-* WinGUp (for Notepad++) v5.3.1
+    .hero-slider { position: relative; background: #FFE8CC; overflow: hidden; }
+    .slider-track { display: flex; transition: transform 0.5s ease-in-out; width: 400%; }
+    .slider-track img { width: 100vw; height: 300px; object-fit: cover; flex-shrink: 0; }
+    .slider-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.8); border: none; font-size: 2rem; padding: 0.5rem; cursor: pointer; z-index: 2; }
+    .slider-btn.prev { left: 1rem; } .slider-btn.next { right: 1rem; }
+    .slider-dots { position: absolute; bottom: 1rem; width: 100%; text-align: center; }
+    .slider-dots span { display: inline-block; width: 10px; height: 10px; margin: 0 4px; background: #999; border-radius: 50%; cursor: pointer; }
+    .slider-dots span.active { background: #D2691E; }
+    .products {
+  padding: 1rem 1rem;
+}
+    .products h3 { font-size: 1.5rem; margin-bottom: 1rem; }
+    .product-scroll { display: flex; overflow-x: auto; gap: 1.5rem; padding-bottom: 1rem; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+    .product-scroll .card { flex: 0 0 auto; width: 250px; scroll-snap-align: start; background: white; border-radius: 1rem; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .product-scroll .card:hover { transform: translateY(-5px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    .card img { width: 100%; height: 200px; object-fit: cover; }
+    .card-content { padding: 1rem; }
+    .card-content h4 { margin: 0.5rem 0; }
+    .card-content p { color: gray; font-size: 0.9rem; }
+    .whatsapp-button { text-decoration: none; width: 100%; padding: 0.6rem 1rem; background: #25D366; color: white; border-radius: 999px; font-weight: 600; font-size: 1rem; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; transition: background 0.3s, transform 0.2s, box-shadow 0.2s; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    .whatsapp-button:hover, .whatsapp-button:focus { background: #1ebe5d; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); outline: none; }
+    footer { background: #FDEBD0; text-align: center; padding: 1.5rem; font-size: 0.875rem; }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="social-icons">
+      <a href="https://instagram.com/tartelierbakery" class="icon instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://wa.me/6281263779222" class="icon whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://facebook.com/tartelierbakery" class="icon facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://tiktok.com/@tartelierbakery" class="icon tiktok" target="_blank"><i class="fab fa-tiktok"></i></a>
+    </div>
+  </div>
+  <header>
+    <a href="/"><img src="https://i.postimg.cc/k4XxcZ53/Untitled-2.png" alt="Tartelier Bakery & Patisserie Logo" class="logo-img"></a>
+  </header>
+  <section class="hero-slider">
+    <button class="slider-btn prev" onclick="prevSlide()">❮</button>
+    <div class="slider-track" id="sliderTrack">
+      <img src="https://i.postimg.cc/1XRXh3tR/21de67d4-bc08-44df-9e55-b60aa7f7c611.jpg" alt="Tartshell Premium">
+      <img src="https://i.postimg.cc/BZNt5HYj/27031537-0bfd-451f-b462-0a2870a4c836.jpg" alt="Roti Sobek Cokelat">
+      <img src="https://i.postimg.cc/6q435vBc/084302343f8f3b53c6ca1544f6cf59f9.jpg" alt="Tart Buah Segar">
+      <img src="https://i.postimg.cc/h4mQBkhB/d89a715ce9b584beffd35fa16b45f21d.jpg" alt="Produk Unggulan">
+    </div>
+    <button class="slider-btn next" onclick="nextSlide()">❯</button>
+    <div class="slider-dots" id="sliderDots"></div>
+  </section>
+  <section class="products">
+    <h3>Produk Roti Unggulan</h3>
+    <div class="product-scroll">
+      <div class="card">
+        <img src="https://i.postimg.cc/1tWKhMqh/6d1bccdbcecc3927e47510b07791fac8.jpg" alt="Tartshell Premium">
+        <div class="card-content">
+          <h4>Croissant</h4>
+          <p>Rp 2.700 / PC</p>
+          <a href="https://wa.me/6281263779222?text=Halo%20saya%20ingin%20pesan%20Tartshell%20Premium" class="whatsapp-button"><i class="fab fa-whatsapp"></i> Pesan via WhatsApp</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://i.postimg.cc/wMZc3v2w/d5ed35d3dd3998f080d6c2abb195f6cf.jpg" alt="Roti Sobek Cokelat">
+        <div class="card-content">
+          <h4>Danish Cinnamon Raisin</h4>
+          <p>Rp 3.500 / PC</p>
+          <a href="https://wa.me/6281263779222?text=Halo%20saya%20ingin%20pesan%20Roti%20Sobek%20Cokelat" class="whatsapp-button"><i class="fab fa-whatsapp"></i> Pesan via WhatsApp</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://i.postimg.cc/QtNqyvVJ/4ee4b946229c035198f5bf7cd3907ce8.jpg" alt="Tart Buah Segar">
+        <div class="card-content">
+          <h4>Danish Pain Au Chocolat</h4>
+          <p>Rp 3.300 / PC</p>
+          <a href="https://wa.me/6281263779222?text=Halo%20saya%20ingin%20pesan%20Tart%20Buah%20Segar" class="whatsapp-button"><i class="fab fa-whatsapp"></i> Pesan via WhatsApp</a>
+        </div>
+      </div>
+	  <div class="card">
+        <img src="https://i.postimg.cc/h4mQBkhB/d89a715ce9b584beffd35fa16b45f21d.jpg" alt="Tart Buah Segar">
+        <div class="card-content">
+          <h4>Tart Buah Segar</h4>
+          <p>Rp 50.000</p>
+          <a href="https://wa.me/6281263779222?text=Halo%20saya%20ingin%20pesan%20Tart%20Buah%20Segar" class="whatsapp-button"><i class="fab fa-whatsapp"></i> Pesan via WhatsApp</a>
+        </div>
+      </div>
+	  <div class="card">
+        <img src="https://i.postimg.cc/h4mQBkhB/d89a715ce9b584beffd35fa16b45f21d.jpg" alt="Tart Buah Segar">
+        <div class="card-content">
+          <h4>Tart Buah Segar</h4>
+          <p>Rp 50.000</p>
+          <a href="https://wa.me/6281263779222?text=Halo%20saya%20ingin%20pesan%20Tart%20Buah%20Segar" class="whatsapp-button"><i class="fab fa-whatsapp"></i> Pesan via WhatsApp</a>
+        </div>
+      </div>
+	  <div class="card">
+        <img src="https://i.postimg.cc/h4mQBkhB/d89a715ce9b584beffd35fa16b45f21d.jpg" alt="Tart Buah Segar">
+        <div class="card-content">
+          <h4>Tart Buah Segar</h4>
+          <p>Rp 50.000</p>
+          <a href="https://wa.me/6281263779222?text=Halo%20saya%20ingin%20pesan%20Tart%20Buah%20Segar" class="whatsapp-button"><i class="fab fa-whatsapp"></i> Pesan via WhatsApp</a>
+        </div>
+      </div>
+	  <div class="card">
+        <img src="https://i.postimg.cc/h4mQBkhB/d89a715ce9b584beffd35fa16b45f21d.jpg" alt="Tart Buah Segar">
+        <div class="card-content">
+          <h4>Tart Buah Segar</h4>
+          <p>Rp 50.000</p>
+          <a href="https://wa.me/6281263779222?text=Halo%20saya%20ingin%20pesan%20Tart%20Buah%20Segar" class="whatsapp-button"><i class="fab fa-whatsapp"></i> Pesan via WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="products">
+    <h3>Produk Tartshell Premium</h3>
+    <div class="product-scroll">
+      <div class="card">
+        <img src="https://i.postimg.cc/3wLJXBR9/8034acae354db24d12b71a9ea8263026.jpg" alt="Tartshell Premium">
+        <div class="card-content">
+          <h4>Tartshell Premium</h4>
+          <p>Rp 35.000</p>
+          <a href="https://wa.me/6281263779222?text=Halo%20saya%20ingin%20pesan%20Tartshell%20Premium" class="whatsapp-button"><i class="fab fa-whatsapp"></i> Pesan via WhatsApp</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://i.postimg.cc/6q435vBc/084302343f8f3b53c6ca1544f6cf59f9.jpg" alt="Roti Sobek Cokelat">
+        <div class="card-content">
+          <h4>Roti Sobek Cokelat</h4>
+          <p>Rp 25.000</p>
+          <a href="https://wa.me/6281263779222?text=Halo%20saya%20ingin%20pesan%20Roti%20Sobek%20Cokelat" class="whatsapp-button"><i class="fab fa-whatsapp"></i> Pesan via WhatsApp</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://i.postimg.cc/h4mQBkhB/d89a715ce9b584beffd35fa16b45f21d.jpg" alt="Tart Buah Segar">
+        <div class="card-content">
+          <h4>Tart Buah Segar</h4>
+          <p>Rp 50.000</p>
+          <a href="https://wa.me/6281263779222?text=Halo%20saya%20ingin%20pesan%20Tart%20Buah%20Segar" class="whatsapp-button"><i class="fab fa-whatsapp"></i> Pesan via WhatsApp</a>
+        </div>
+      </div>
+	  <div class="card">
+        <img src="https://i.postimg.cc/h4mQBkhB/d89a715ce9b584beffd35fa16b45f21d.jpg" alt="Tart Buah Segar">
+        <div class="card-content">
+          <h4>Tart Buah Segar</h4>
+          <p>Rp 50.000</p>
+          <a href="https://wa.me/6281263779222?text=Halo%20saya%20ingin%20pesan%20Tart%20Buah%20Segar" class="whatsapp-button"><i class="fab fa-whatsapp"></i> Pesan via WhatsApp</a>
+        </div>
+      </div>
+	  <div class="card">
+        <img src="https://i.postimg.cc/h4mQBkhB/d89a715ce9b584beffd35fa16b45f21d.jpg" alt="Tart Buah Segar">
+        <div class="card-content">
+          <h4>Tart Buah Segar</h4>
+          <p>Rp 50.000</p>
+          <a href="https://wa.me/6281263779222?text=Halo%20saya%20ingin%20pesan%20Tart%20Buah%20Segar" class="whatsapp-button"><i class="fab fa-whatsapp"></i> Pesan via WhatsApp</a>
+        </div>
+      </div>
+	  <div class="card">
+        <img src="https://i.postimg.cc/h4mQBkhB/d89a715ce9b584beffd35fa16b45f21d.jpg" alt="Tart Buah Segar">
+        <div class="card-content">
+          <h4>Tart Buah Segar</h4>
+          <p>Rp 50.000</p>
+          <a href="https://wa.me/6281263779222?text=Halo%20saya%20ingin%20pesan%20Tart%20Buah%20Segar" class="whatsapp-button"><i class="fab fa-whatsapp"></i> Pesan via WhatsApp</a>
+        </div>
+      </div>
+	  <div class="card">
+        <img src="https://i.postimg.cc/h4mQBkhB/d89a715ce9b584beffd35fa16b45f21d.jpg" alt="Tart Buah Segar">
+        <div class="card-content">
+          <h4>Tart Buah Segar</h4>
+          <p>Rp 50.000</p>
+          <a href="https://wa.me/6281263779222?text=Halo%20saya%20ingin%20pesan%20Tart%20Buah%20Segar" class="whatsapp-button"><i class="fab fa-whatsapp"></i> Pesan via WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <footer>
+    Alamat Toko: Jl. Klp. Hijau No.99c, RT.10/RW.3, Jagakarsa, Jakarta Selatan, 12620
+  </footer>
+  <script>
+    const track = document.getElementById('sliderTrack');
+    const dotsContainer = document.getElementById('sliderDots');
+    const slides = track.children;
+    let index = 0;
+    for (let i = 0; i < slides.length; i++) {
+      const dot = document.createElement('span');
+      dot.addEventListener('click', () => goToSlide(i));
+      dotsContainer.appendChild(dot);
+    }
+    const dots = dotsContainer.children;
+    function updateDots() {
+      for (let i = 0; i < dots.length; i++) {
+        dots[i].classList.toggle('active', i === index);
+      }
+    }
+    function goToSlide(i) {
+      index = i;
+      track.style.transform = `translateX(-${index * 100}vw)`;
+      updateDots();
+    }
+    function nextSlide() {
+      goToSlide((index + 1) % slides.length);
+    }
+    function prevSlide() {
+      goToSlide((index - 1 + slides.length) % slides.length);
+    }
+    setInterval(nextSlide, 5000);
+    goToSlide(0);
+  </script>
+</body>
+</html>
